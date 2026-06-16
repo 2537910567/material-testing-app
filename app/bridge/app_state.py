@@ -731,6 +731,27 @@ class AppState(QObject):
         self.updateAvailableChanged.emit()
 
     @Slot(result="QVariantMap")
+    def checkForUpdatesNow(self):
+        """V6.1.1: 手动检查更新（同步，QML 可直接调用）"""
+        try:
+            from ..engine.update_checker import check_for_updates
+            result = check_for_updates("6.1.1")
+            if result and result.get("version"):
+                self._update_available = True
+                self._update_version = result["version"]
+                self._update_url = result["url"]
+                self._update_body = result.get("body", "")
+                self.updateAvailableChanged.emit()
+                self.updateVersionChanged.emit()
+                self.updateUrlChanged.emit()
+                self.updateBodyChanged.emit()
+                return {"version": result["version"], "url": result.get("url", "")}
+            return {}
+        except Exception as e:
+            logger.warning("checkForUpdatesNow failed: %s", e)
+            return {}
+
+    @Slot(result="QVariantMap")
     def downloadUpdate(self):
         """下载更新安装包 → 返回下载结果"""
         import tempfile, os
@@ -1541,10 +1562,25 @@ class AppState(QObject):
         ver = QApplication.applicationVersion() or "6.0.0"
         return (
             f"工程材料送检分析系统 V{ver}\n\n"
-            "基于 GB55032-2022\n"
-            "自动分析工程图纸并生成材料检测送检计划\n\n"
+            "基于 GB55032-2022 自动分析工程图纸并生成材料检测送检计划\n\n"
             "技术栈: Python/PySide6 + DeepSeek + Qwen-VL\n\n"
-            "V5.2: shadcn Zinc主题 + 结构化异常 + AI可观测性 + 离线可用 + 标准知识库"
+            "── V6.1.1 更新内容 ──\n"
+            "• 修复 Win11 系统批量导入 CAD 文件时弹出控制台窗口的问题\n"
+            "• 修复导入 CAD 文件报 'no module named unittest' 错误\n"
+            "• 修复自动更新提示条布局异常导致更新不可见\n"
+            "• 修复 NSIS 安装包许可证界面中文乱码\n"
+            "• 设置面板新增手动检查更新功能\n"
+            "• 导入失败时弹出错误提示对话框\n\n"
+            "── V6.1.0 更新内容 ──\n"
+            "• 新增 GitHub Release 自动更新检查\n"
+            "• CAD 渲染策略优化 (400/350/200/150dpi 分级)\n"
+            "• 混合文件类型导入策略优化\n"
+            "• AI 分析专业匹配 Few-Shot 增强\n"
+            "• 施工步骤明细表导出 (Sheet 4)\n\n"
+            "── V5.2 更新内容 ──\n"
+            "• shadcn/ui Zinc 动态主题 (浅色/深色)\n"
+            "• 结构化异常层级 + AI 可观测性\n"
+            "• 离线可用 + 标准知识库 (91本预置)"
         )
 
     # ── Error Log ────────────────────────────────

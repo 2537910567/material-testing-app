@@ -569,7 +569,9 @@ ApplicationWindow {
                 }
             }
         }
-    }
+    }  // RowLayout (2-column)
+
+    }  // ColumnLayout (update banner + main layout)
 
     // ── Footer ───────────────────────────────────────
     footer: Rectangle {
@@ -698,9 +700,7 @@ ApplicationWindow {
                 }
             }
         }
-    }  // RowLayout (2-column)
-
-    }  // ColumnLayout (update banner + main layout)
+    }
 
     // ── Connections ──────────────────────────────────
     Connections {

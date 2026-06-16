@@ -19,6 +19,8 @@ Popup {
     height: 620
     closePolicy: Popup.CloseOnEscape
 
+    property bool updateChecking: false
+
     background: Rectangle {
         color: AppTheme.bgSurface
         radius: AppTheme.radiusLarge
@@ -293,6 +295,76 @@ Popup {
                     font.pixelSize: AppTheme.fontSize
                     font.bold: true
                     color: AppTheme.textPrimary
+                }
+
+                // V6.1.1: 版本与更新检查
+                RowLayout {
+                    Layout.fillWidth: true
+                    Label {
+                        text: "当前版本: V" + (AppState ? AppState.appVersion : "")
+                        font.pixelSize: AppTheme.fontSize
+                        color: AppTheme.textPrimary
+                    }
+                    Item { Layout.fillWidth: true }
+                    ActionButton {
+                        buttonType: "primary"
+                        text: updateChecking ? "检查中..." : "检查更新"
+                        enabled: !updateChecking
+                        font.pixelSize: AppTheme.fontSizeSm
+                        onClicked: {
+                            updateChecking = true
+                            updateStatusText.text = "正在检查..."
+                            updateStatusText.color = AppTheme.accent
+                            updateDownloadBtn.visible = false
+                            if (AppState) {
+                                var result = AppState.checkForUpdatesNow()
+                                if (result && result.version) {
+                                    updateStatusText.text = "发现新版本 V" + result.version
+                                    updateStatusText.color = AppTheme.success
+                                    updateDownloadBtn.visible = true
+                                } else {
+                                    updateStatusText.text = "已是最新版本"
+                                    updateStatusText.color = AppTheme.textSecondary
+                                }
+                            } else {
+                                updateStatusText.text = "检查失败：无法连接"
+                                updateStatusText.color = AppTheme.danger
+                            }
+                            updateChecking = false
+                        }
+                    }
+                }
+
+                Label {
+                    id: updateStatusText
+                    text: ""
+                    font.pixelSize: AppTheme.fontSizeSm
+                    color: AppTheme.textSecondary
+                    Layout.fillWidth: true
+                }
+
+                RowLayout {
+                    id: updateDownloadBtn
+                    visible: false
+                    Layout.fillWidth: true
+                    ActionButton {
+                        buttonType: "primary"
+                        text: "下载更新"
+                        font.pixelSize: AppTheme.fontSizeSm
+                        onClicked: {
+                            if (AppState) {
+                                var r = AppState.downloadUpdate()
+                                if (r && r.ok) {
+                                    updateStatusText.text = "下载完成，准备安装..."
+                                    updateStatusText.color = AppTheme.success
+                                    AppState.installUpdate(r.path)
+                                } else {
+                                    updateStatusText.text = "下载失败: " + (r ? r.message : "未知错误")
+                                    updateStatusText.color = AppTheme.danger
+                                }
+                            }
+                        }
+                    }
                 }
 
                 Rectangle {
