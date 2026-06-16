@@ -155,7 +155,9 @@ def run_gui():
     # ── 创建 QML 引擎并加载 ────────────────────────
     engine = QQmlApplicationEngine()
 
-    qml_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "app", "qml")
+    # V6.1: PyInstaller 打包后 QML 在 _MEIPASS/qml/，开发环境在 app/qml/
+    qml_dir = os.path.join(_meipass, "qml") if _meipass else \
+              os.path.join(os.path.dirname(os.path.abspath(__file__)), "app", "qml")
     qml_main = os.path.join(qml_dir, "main.qml")
 
     if not os.path.exists(qml_main):

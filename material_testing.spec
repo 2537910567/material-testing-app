@@ -24,9 +24,8 @@ a = Analysis(
     hiddenimports=[
         # QML 引擎内部依赖
         'PySide6.QtQuickControls2',
-        'PySide6.QtQuickTemplates2',
         'PySide6.QtQml',
-        'PySide6.QtQml.Models',
+        'PySide6.QtCore',
         'PySide6.QtGui',
         # 引擎模块（动态导入）
         'app.engine.dwg_parser',
