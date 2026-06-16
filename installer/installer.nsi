@@ -1,10 +1,10 @@
-; NSIS 安装脚本 — 工程材料送检分析系统 V6.1.1
+; NSIS 安装脚本 — 工程材料送检分析系统 V6.1.2
 ; 编译: makensis installer\installer.nsi
 Unicode true
 
 !define APP_NAME "MaterialTestingTool"
 !define APP_DISPLAY "工程材料送检分析系统"
-!define APP_VERSION "6.1.1"
+!define APP_VERSION "6.1.2"
 !define PUBLISHER "MaterialTestingTool"
 !define OUTPUT_DIR "C:\Users\Administrator\Desktop\dist\MaterialTestingTool"
 !define REDIST_DIR "C:\Users\Administrator\Desktop\dist\redist"
@@ -41,21 +41,27 @@ SetCompressorDictSize 64
 Section "Install"
     SetOutPath "$INSTDIR"
 
-    ; 1. VC++ Redist 检测 + 安装（内嵌，如未提供则跳过）
+    ; 1. VC++ Redist 检测 + 安装（内嵌）
     IfFileExists "${REDIST_DIR}\vc_redist.x64.exe" 0 skip_vcredist
-        File /nonfatal "${REDIST_DIR}\vc_redist.x64.exe"
+        File "${REDIST_DIR}\vc_redist.x64.exe"
         DetailPrint "安装 VC++ Redist..."
         ExecWait '"$INSTDIR\vc_redist.x64.exe" /install /quiet /norestart' $0
         Delete "$INSTDIR\vc_redist.x64.exe"
+        ${If} $0 != 0
+            MessageBox MB_OK "VC++ Redist 安装失败（错误码: $0）。$\n部分功能可能无法正常运行。"
+        ${EndIf}
         DetailPrint "VC++ Redist 完成"
     skip_vcredist:
 
-    ; 2. ODA File Converter 检测 + 安装（内嵌 MSI 安装包，如未提供则跳过）
+    ; 2. ODA File Converter 检测 + 安装（内嵌 MSI 安装包）
     IfFileExists "${REDIST_DIR}\ODAFC_Setup.msi" 0 skip_odafc
-        File /nonfatal "${REDIST_DIR}\ODAFC_Setup.msi"
+        File "${REDIST_DIR}\ODAFC_Setup.msi"
         DetailPrint "安装 ODA File Converter..."
         ExecWait 'msiexec /i "$INSTDIR\ODAFC_Setup.msi" /quiet /norestart' $0
         Delete "$INSTDIR\ODAFC_Setup.msi"
+        ${If} $0 != 0
+            MessageBox MB_OK "ODA File Converter 安装失败（错误码: $0）。$\nDWG/DXF 文件导入将无法工作。$\n请手动安装: https://www.opendesign.com/guestfiles/oda_file_converter"
+        ${EndIf}
         DetailPrint "ODAFC 完成"
     skip_odafc:
 

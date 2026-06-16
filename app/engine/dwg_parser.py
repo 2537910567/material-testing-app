@@ -189,6 +189,7 @@ def convert_dwg_to_dxf(dwg_path: str, output_dir: Optional[str] = None,
     """
     odafc = find_odafc()
     if not odafc:
+        logger.error("ODA File Converter 未安装。DWG 文件无法解析。请安装 ODAFC: https://www.opendesign.com/guestfiles/oda_file_converter")
         return None
 
     if output_dir is None:
@@ -991,6 +992,7 @@ def parse_dwg(dwg_path: str, auto_convert: bool = True) -> Optional[DWGContent]:
         if dxf_path:
             return parse_dxf_to_content(dxf_path, path.name)
 
+    logger.warning("DWG 解析失败 (无 ODAFC 或 DWG→DXF 转换失败): %s", dwg_path)
     return None
 
 

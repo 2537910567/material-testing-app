@@ -82,6 +82,21 @@ class FileImportThread(QThread):
                     if fp and os.path.exists(fp) and abs(os.path.getmtime(fp)-f.get("file_mtime",0))<1.0: completed.add(fp)
             return completed
         except Exception as e: logger.warning("_get_completed_files: %s",e); return set()
+    def _lookup_file_id(self, fpath):
+        """V6.1.2: 从 file_path 查 files 表 id"""
+        try:
+            import os as _os
+            fpn = _os.path.normpath(fpath)
+            rows = self._db._conn.execute(
+                "SELECT id, file_path FROM files WHERE project_id=?", (self._project_id,)
+            ).fetchall()
+            for r in rows:
+                if fpath == r[1] or fpn == _os.path.normpath(r[1] or ""):
+                    return r[0]
+        except Exception:
+            pass
+        return None
+
     def _get_optimal_workers(self):
         cad=sum(1 for ft,_ in self.task_queue if ft=="cad")
         pdfs=sum(1 for ft,_ in self.task_queue if ft=="pdf")
@@ -111,7 +126,10 @@ class FileImportThread(QThread):
         fid=None
         for r in rows:
             if fpath==r[1] or fpn==_os.path.normpath(r[1] or ""): fid=r[0]; break
-        if not fid: logger.warning("_store_parse_result: id not found for %s",fn); return
+        if not fid:
+            logger.warning("_store_parse_result: id not found for %s", fn)
+            self.error.emit(f"{fn}: 数据库记录丢失，解析结果未能保存")
+            return
         if isinstance(result,DWGContent):
             entities=[{"text":t["text"],"layer":t.get("layer",""),"x":t.get("x",0),"y":t.get("y",0)} for t in result.text_entities]
             self._db.store_text_entities(fid,entities)
@@ -143,6 +161,14 @@ class FileImportThread(QThread):
                         elif ft=="word": self.word_results.append(r)
                         elif ft=="excel": self.excel_results.append(r)
                     if self._db and r is not None: self._store_parse_result(fp,self._project_id,ft,r)
+                    # V6.1.2: result 为 None → ODAFC 缺失等静默失败
+                    if r is None and ft == "cad":
+                        if self._db:
+                            fid = self._lookup_file_id(fp)
+                            if fid:
+                                self._db.update_file_parse_status(fid, "error", "",
+                                    "ODA File Converter 未安装，无法解析 DWG 文件。请安装 ODAFC。")
+                        self.error.emit(f"{fn}: 解析失败 — ODA File Converter 未安装")
                     if time.time()*1000-getattr(self,'_last_progress_time',0)>=200:
                         self.progress.emit(completed,total,f"解析 {completed}/{total}: {fn}"); self._last_progress_time=time.time()*1000
                     self.file_done.emit(fp,self._project_id,r)
@@ -307,6 +333,9 @@ class StrategyConversionThread(QThread):
             if ft=="cad":
                 cad_result=convert_cad_with_strategy(fp,strategy=strategy,
                                                      cancel_event=self._cancel_event)
+                # V6.1.2: 检查转换错误，不让静默失败
+                if isinstance(cad_result, dict) and cad_result.get("error"):
+                    raise RuntimeError(cad_result["error"])
                 pngs=cad_result.get("png_paths",[]) if isinstance(cad_result,dict) else []
             elif ft=="pdf":
                 # V5.1 修复: extract_pdf_with_strategy 的签名是 (pdf_path, page_types, output_dir)
@@ -735,7 +764,7 @@ class AppState(QObject):
         """V6.1.1: 手动检查更新（同步，QML 可直接调用）"""
         try:
             from ..engine.update_checker import check_for_updates
-            result = check_for_updates("6.1.1")
+            result = check_for_updates("6.1.2")
             if result and result.get("version"):
                 self._update_available = True
                 self._update_version = result["version"]
@@ -797,7 +826,7 @@ class AppState(QObject):
 
     @Property(str, notify=errorLogChanged)
     def appVersion(self):
-        return "6.1.1"
+        return "6.1.2"
 
     # V6.1: 自动更新
     def _getUpdateAvailable(self): return self._update_available
@@ -1057,9 +1086,14 @@ class AppState(QObject):
                                        for l in r["text"].split("\n")[:20000]]
                             self._db.store_text_entities(f["id"], entities)
                             self._db.update_file_parse_status(f["id"], "done", ft.upper(), "")
-                except Exception:
+                except Exception as _ppe:
                     import logging; _pp_log = logging.getLogger(__name__)
                     _pp_log.warning("_ensure_files_parsed: 后台解析失败 — file_id=%s", f.get("id"), exc_info=True)
+                    if self._db and f.get("id"):
+                        try:
+                            self._db.update_file_parse_status(f["id"], "error", "", str(_ppe)[:200])
+                        except Exception:
+                            pass
             self.projectsChanged.emit()
         _th.Thread(target=_pp, daemon=True).start()
 
