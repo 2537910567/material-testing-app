@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual env
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+
+# App data (user-specific)
+.material_testing_tool/
+_test_output/
+*.log
+*.db
+
+# PyInstaller
+*.spec.bak
+
+# Temp
+_converted_*/
+large_file_test/
+/manual/
+
+# Sensitive
+api_key.txt
+config.json
+*.key
