@@ -1,0 +1,16 @@
+PySide6>=6.6
+openpyxl>=3.1
+pdfplumber>=0.10
+requests>=2.32
+PyMuPDF>=1.23
+ezdxf>=1.3
+python-docx>=1.0
+matplotlib>=3.8
+
+pytest>=8.0
+
+# V4.9.3 可选依赖:
+# opencv-python-headless  — 扫描页 CLAHE 增强 (无 GUI 版本)
+# pycairo                 — CAD Cairo 渲染后端加速 (3-5x matplotlib)
+# paddleocr               — OCR 引擎 (~200MB, 中文识别率高)
+# pytesseract             — OCR 回退引擎 (~30MB, 需安装 tesseract-ocr)

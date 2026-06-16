@@ -1,11 +1,13 @@
-; NSIS 安装脚本 — 工程材料送检分析系统 V6.1
+; NSIS 安装脚本 — 工程材料送检分析系统 V6.1.1
 ; 编译: makensis installer\installer.nsi
+Unicode true
 
 !define APP_NAME "MaterialTestingTool"
 !define APP_DISPLAY "工程材料送检分析系统"
-!define APP_VERSION "6.1.0"
+!define APP_VERSION "6.1.1"
 !define PUBLISHER "MaterialTestingTool"
-!define OUTPUT_DIR "..\dist\MaterialTestingTool"
+!define OUTPUT_DIR "C:\Users\Administrator\Desktop\dist\MaterialTestingTool"
+!define REDIST_DIR "C:\Users\Administrator\Desktop\dist\redist"
 
 Name "${APP_DISPLAY}"
 OutFile "${APP_NAME}-Setup-v${APP_VERSION}.exe"
@@ -20,8 +22,9 @@ SetCompressorDictSize 64
 !include "FileFunc.nsh"
 
 !define MUI_ABORTWARNING
-!define MUI_ICON "..\app_icon.png"
-!define MUI_UNICON "..\app_icon.png"
+; V6.1.1: 使用 NSIS 默认图标, 避免编译时图标路径问题
+; !define MUI_ICON "..\app_icon.png"
+; !define MUI_UNICON "..\app_icon.png"
 
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "license.txt"
@@ -38,23 +41,27 @@ SetCompressorDictSize 64
 Section "Install"
     SetOutPath "$INSTDIR"
 
-    ; 1. VC++ Redist 检测 + 安装
-    ${If} ${FileExists} "$INSTDIR\vc_redist.x64.exe"
+    ; 1. VC++ Redist 检测 + 安装（内嵌，如未提供则跳过）
+    IfFileExists "${REDIST_DIR}\vc_redist.x64.exe" 0 skip_vcredist
+        File /nonfatal "${REDIST_DIR}\vc_redist.x64.exe"
         DetailPrint "安装 VC++ Redist..."
         ExecWait '"$INSTDIR\vc_redist.x64.exe" /install /quiet /norestart' $0
-        DetailPrint "VC++ Redist 完成 (exit=$0)"
-    ${EndIf}
+        Delete "$INSTDIR\vc_redist.x64.exe"
+        DetailPrint "VC++ Redist 完成"
+    skip_vcredist:
 
-    ; 2. ODA File Converter 检测 + 安装
-    ; ODAFC 安装包需放入 DIST 目录（ODAFC_Setup.exe）
-    IfFileExists "$INSTDIR\ODAFC_Setup.exe" 0 skip_odafc
+    ; 2. ODA File Converter 检测 + 安装（内嵌 MSI 安装包，如未提供则跳过）
+    IfFileExists "${REDIST_DIR}\ODAFC_Setup.msi" 0 skip_odafc
+        File /nonfatal "${REDIST_DIR}\ODAFC_Setup.msi"
         DetailPrint "安装 ODA File Converter..."
-        ExecWait '"$INSTDIR\ODAFC_Setup.exe" /SILENT' $0
-        DetailPrint "ODAFC 完成 (exit=$0)"
+        ExecWait 'msiexec /i "$INSTDIR\ODAFC_Setup.msi" /quiet /norestart' $0
+        Delete "$INSTDIR\ODAFC_Setup.msi"
+        DetailPrint "ODAFC 完成"
     skip_odafc:
 
     ; 3. 复制应用程序文件
     DetailPrint "安装应用程序..."
+    SetOutPath "$INSTDIR"
     File /r "${OUTPUT_DIR}\*.*"
 
     ; 4. 快捷方式

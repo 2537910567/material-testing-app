@@ -1,0 +1,1483 @@
+[
+  {
+    "code": "GB 55032-2022",
+    "name": "建筑与市政工程施工质量控制通用规范",
+    "type": "国标",
+    "mandatory": true,
+    "discipline": "通用规范",
+    "keywords": [
+      "施工质量",
+      "质量控制",
+      "验收",
+      "检测",
+      "取样"
+    ],
+    "scope": "适用于建筑与市政工程施工全过程质量控制，为全文强制性规范",
+    "version_year": 2022,
+    "series": ""
+  },
+  {
+    "code": "GB 55011-2021",
+    "name": "城市道路交通工程项目规范",
+    "type": "国标",
+    "mandatory": true,
+    "discipline": "道路工程",
+    "keywords": [
+      "城市道路",
+      "交通工程",
+      "路基",
+      "路面"
+    ],
+    "scope": "适用于城市道路交通工程的规划、设计、施工和验收",
+    "version_year": 2021,
+    "series": ""
+  },
+  {
+    "code": "GB 55017-2021",
+    "name": "工程勘察通用规范",
+    "type": "国标",
+    "mandatory": true,
+    "discipline": "地基基础",
+    "keywords": [
+      "勘察",
+      "地质",
+      "岩土",
+      "地基"
+    ],
+    "scope": "适用于各类建设工程的岩土工程勘察",
+    "version_year": 2021,
+    "series": ""
+  },
+  {
+    "code": "GB 55003-2021",
+    "name": "建筑与市政地基基础通用规范",
+    "type": "国标",
+    "mandatory": true,
+    "discipline": "地基基础",
+    "keywords": [
+      "地基",
+      "基础",
+      "承载力",
+      "桩基"
+    ],
+    "scope": "适用于建筑与市政工程地基基础设计、施工和验收",
+    "version_year": 2021,
+    "series": ""
+  },
+  {
+    "code": "GB 55019-2021",
+    "name": "建筑与市政工程无障碍通用规范",
+    "type": "国标",
+    "mandatory": true,
+    "discipline": "附属设施",
+    "keywords": [
+      "无障碍",
+      "盲道",
+      "缘石坡道"
+    ],
+    "scope": "适用于建筑与市政工程无障碍设施建设",
+    "version_year": 2021,
+    "series": ""
+  },
+  {
+    "code": "GB 55008-2021",
+    "name": "混凝土结构通用规范",
+    "type": "国标",
+    "mandatory": true,
+    "discipline": "原材料",
+    "keywords": [
+      "混凝土",
+      "结构",
+      "强度",
+      "耐久性"
+    ],
+    "scope": "适用于混凝土结构的设计、施工和验收",
+    "version_year": 2021,
+    "series": ""
+  },
+  {
+    "code": "GB/T 50123-2019",
+    "name": "土工试验方法标准",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "土工",
+      "试验",
+      "含水率",
+      "密度",
+      "压实度"
+    ],
+    "scope": "适用于各类建设工程的土工试验",
+    "version_year": 2019,
+    "series": ""
+  },
+  {
+    "code": "GB 175-2023",
+    "name": "通用硅酸盐水泥",
+    "type": "国标",
+    "mandatory": true,
+    "discipline": "原材料",
+    "keywords": [
+      "水泥",
+      "硅酸盐",
+      "强度",
+      "凝结时间",
+      "安定性"
+    ],
+    "scope": "适用于通用硅酸盐水泥的质量控制和检测",
+    "version_year": 2023,
+    "series": ""
+  },
+  {
+    "code": "GB 1499.1-2024",
+    "name": "钢筋混凝土用钢 第1部分：热轧光圆钢筋",
+    "type": "国标",
+    "mandatory": true,
+    "discipline": "原材料",
+    "keywords": [
+      "钢筋",
+      "光圆",
+      "屈服强度",
+      "拉伸"
+    ],
+    "scope": "适用于热轧光圆钢筋的质量控制和检测",
+    "version_year": 2024,
+    "series": ""
+  },
+  {
+    "code": "GB 1499.2-2024",
+    "name": "钢筋混凝土用钢 第2部分：热轧带肋钢筋",
+    "type": "国标",
+    "mandatory": true,
+    "discipline": "原材料",
+    "keywords": [
+      "钢筋",
+      "带肋",
+      "屈服强度",
+      "拉伸",
+      "弯曲"
+    ],
+    "scope": "适用于热轧带肋钢筋的质量控制和检测",
+    "version_year": 2024,
+    "series": ""
+  },
+  {
+    "code": "GB/T 228.1-2021",
+    "name": "金属材料 拉伸试验 第1部分：室温试验方法",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "金属",
+      "拉伸",
+      "屈服",
+      "抗拉强度",
+      "伸长率"
+    ],
+    "scope": "适用于金属材料室温拉伸性能检测",
+    "version_year": 2021,
+    "series": ""
+  },
+  {
+    "code": "GB/T 232-2010",
+    "name": "金属材料 弯曲试验方法",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "金属",
+      "弯曲",
+      "冷弯",
+      "工艺性能"
+    ],
+    "scope": "适用于金属材料弯曲工艺性能检测",
+    "version_year": 2010,
+    "series": ""
+  },
+  {
+    "code": "GB/T 14684-2022",
+    "name": "建设用砂",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "原材料",
+    "keywords": [
+      "砂",
+      "细骨料",
+      "级配",
+      "含泥量"
+    ],
+    "scope": "适用于建设工程中混凝土用砂的质量控制和检测",
+    "version_year": 2022,
+    "series": ""
+  },
+  {
+    "code": "GB/T 14685-2022",
+    "name": "建设用卵石、碎石",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "原材料",
+    "keywords": [
+      "碎石",
+      "卵石",
+      "粗骨料",
+      "级配",
+      "压碎值"
+    ],
+    "scope": "适用于建设工程中混凝土用碎石和卵石的质量控制和检测",
+    "version_year": 2022,
+    "series": ""
+  },
+  {
+    "code": "GB/T 1596-2017",
+    "name": "用于水泥和混凝土中的粉煤灰",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "原材料",
+    "keywords": [
+      "粉煤灰",
+      "掺合料",
+      "细度",
+      "需水量比"
+    ],
+    "scope": "适用于水泥和混凝土中粉煤灰的质量控制",
+    "version_year": 2017,
+    "series": ""
+  },
+  {
+    "code": "GB/T 25181-2019",
+    "name": "预拌砂浆",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "原材料",
+    "keywords": [
+      "砂浆",
+      "预拌",
+      "砌筑",
+      "抹灰",
+      "抗压强度"
+    ],
+    "scope": "适用于预拌砂浆的质量控制和检测",
+    "version_year": 2019,
+    "series": ""
+  },
+  {
+    "code": "GB/T 50081-2019",
+    "name": "混凝土物理力学性能试验方法标准",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "混凝土",
+      "抗压强度",
+      "抗折强度",
+      "弹性模量"
+    ],
+    "scope": "适用于混凝土力学性能检测试验",
+    "version_year": 2019,
+    "series": ""
+  },
+  {
+    "code": "GB/T 50082-2009",
+    "name": "普通混凝土长期性能和耐久性能试验方法标准",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "混凝土",
+      "耐久性",
+      "抗渗",
+      "抗冻",
+      "碳化"
+    ],
+    "scope": "适用于混凝土长期性能和耐久性能检测",
+    "version_year": 2009,
+    "series": ""
+  },
+  {
+    "code": "GB 50204-2015",
+    "name": "混凝土结构工程施工质量验收规范",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "通用规范",
+    "keywords": [
+      "混凝土",
+      "结构",
+      "验收",
+      "钢筋",
+      "模板"
+    ],
+    "scope": "适用于混凝土结构工程施工质量验收",
+    "version_year": 2015,
+    "series": ""
+  },
+  {
+    "code": "GB 50203-2011",
+    "name": "砌体结构工程施工质量验收规范",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "通用规范",
+    "keywords": [
+      "砌体",
+      "砖",
+      "砌块",
+      "砂浆",
+      "验收"
+    ],
+    "scope": "适用于砌体结构工程施工质量验收",
+    "version_year": 2011,
+    "series": ""
+  },
+  {
+    "code": "GB/T 50344-2019",
+    "name": "建筑结构检测技术标准",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "结构检测",
+      "混凝土",
+      "钢筋",
+      "强度",
+      "缺陷"
+    ],
+    "scope": "适用于建筑结构的现场检测和评定",
+    "version_year": 2019,
+    "series": ""
+  },
+  {
+    "code": "GB 50086-2015",
+    "name": "岩土锚杆与喷射混凝土支护工程技术规范",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "地基基础",
+    "keywords": [
+      "锚杆",
+      "喷射混凝土",
+      "边坡",
+      "支护"
+    ],
+    "scope": "适用于岩土锚杆与喷射混凝土支护工程",
+    "version_year": 2015,
+    "series": ""
+  },
+  {
+    "code": "GB/T 5224-2014",
+    "name": "预应力混凝土用钢绞线",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "原材料",
+    "keywords": [
+      "钢绞线",
+      "预应力",
+      "抗拉强度",
+      "松弛"
+    ],
+    "scope": "适用于预应力混凝土用钢绞线的质量控制",
+    "version_year": 2014,
+    "series": ""
+  },
+  {
+    "code": "GB/T 14370-2015",
+    "name": "预应力筋用锚具、夹具和连接器",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "原材料",
+    "keywords": [
+      "锚具",
+      "夹具",
+      "连接器",
+      "预应力",
+      "静载"
+    ],
+    "scope": "适用于预应力筋用锚具、夹具和连接器的检测",
+    "version_year": 2015,
+    "series": ""
+  },
+  {
+    "code": "GB/T 700-2006",
+    "name": "碳素结构钢",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "原材料",
+    "keywords": [
+      "钢材",
+      "碳素钢",
+      "型钢",
+      "钢板"
+    ],
+    "scope": "适用于碳素结构钢的质量控制",
+    "version_year": 2006,
+    "series": ""
+  },
+  {
+    "code": "GB/T 1591-2018",
+    "name": "低合金高强度结构钢",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "原材料",
+    "keywords": [
+      "钢材",
+      "低合金",
+      "高强度",
+      "结构钢"
+    ],
+    "scope": "适用于低合金高强度结构钢的质量控制",
+    "version_year": 2018,
+    "series": ""
+  },
+  {
+    "code": "GB/T 11345-2013",
+    "name": "焊缝无损检测 超声检测 技术、检测等级和评定",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "焊缝",
+      "超声",
+      "无损检测",
+      "钢结构"
+    ],
+    "scope": "适用于钢结构焊缝的超声无损检测",
+    "version_year": 2013,
+    "series": ""
+  },
+  {
+    "code": "GB 50982-2014",
+    "name": "建筑与桥梁结构监测技术规范",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "桥梁工程",
+    "keywords": [
+      "桥梁",
+      "结构监测",
+      "应变",
+      "位移",
+      "振动"
+    ],
+    "scope": "适用于建筑与桥梁结构的施工和运营监测",
+    "version_year": 2014,
+    "series": ""
+  },
+  {
+    "code": "GB 50688-2011",
+    "name": "城市道路交通设施设计规范",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "附属设施",
+    "keywords": [
+      "交通设施",
+      "标志",
+      "标线",
+      "护栏"
+    ],
+    "scope": "适用于城市道路交通设施的设计",
+    "version_year": 2011,
+    "series": ""
+  },
+  {
+    "code": "GB 5768.1-2009",
+    "name": "道路交通标志和标线 第1部分：总则",
+    "type": "国标",
+    "mandatory": true,
+    "discipline": "附属设施",
+    "keywords": [
+      "交通标志",
+      "标线",
+      "反光"
+    ],
+    "scope": "适用于道路交通标志和标线的设置",
+    "version_year": 2009,
+    "series": ""
+  },
+  {
+    "code": "GB 50268-2008",
+    "name": "给水排水管道工程施工及验收规范",
+    "type": "国标",
+    "mandatory": false,
+    "discipline": "附属设施",
+    "keywords": [
+      "给水",
+      "排水",
+      "管道",
+      "闭水试验"
+    ],
+    "scope": "适用于给水排水管道工程的施工和验收",
+    "version_year": 2008,
+    "series": ""
+  },
+  {
+    "code": "CJJ 1-2008",
+    "name": "城镇道路工程施工与质量验收规范",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "道路工程",
+    "keywords": [
+      "城镇道路",
+      "路基",
+      "路面",
+      "基层",
+      "验收"
+    ],
+    "scope": "适用于城市新建、改建道路工程的施工质量控制和验收",
+    "version_year": 2008,
+    "series": ""
+  },
+  {
+    "code": "CJJ 2-2008",
+    "name": "城市桥梁工程施工与质量验收规范",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "桥梁工程",
+    "keywords": [
+      "桥梁",
+      "基础",
+      "墩台",
+      "梁体",
+      "验收"
+    ],
+    "scope": "适用于城市桥梁工程的施工质量控制和验收",
+    "version_year": 2008,
+    "series": ""
+  },
+  {
+    "code": "CJJ 37-2012",
+    "name": "城市道路工程设计规范",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "道路工程",
+    "keywords": [
+      "城市道路",
+      "设计",
+      "横断面",
+      "纵断面"
+    ],
+    "scope": "适用于城市道路工程设计",
+    "version_year": 2012,
+    "series": ""
+  },
+  {
+    "code": "CJJ 56-2012",
+    "name": "市政工程勘察规范",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "地基基础",
+    "keywords": [
+      "市政",
+      "勘察",
+      "地质",
+      "地下水"
+    ],
+    "scope": "适用于市政工程的岩土工程勘察",
+    "version_year": 2012,
+    "series": ""
+  },
+  {
+    "code": "CJJ 89-2012",
+    "name": "城市道路照明工程施工及验收规范",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "附属设施",
+    "keywords": [
+      "照明",
+      "路灯",
+      "电缆"
+    ],
+    "scope": "适用于城市道路照明工程施工和验收",
+    "version_year": 2012,
+    "series": ""
+  },
+  {
+    "code": "JGJ 52-2006",
+    "name": "普通混凝土用砂、石质量及检验方法标准",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "原材料",
+    "keywords": [
+      "砂",
+      "石",
+      "混凝土",
+      "含泥量",
+      "级配"
+    ],
+    "scope": "适用于普通混凝土用砂石的质量检验",
+    "version_year": 2006,
+    "series": ""
+  },
+  {
+    "code": "JGJ 55-2011",
+    "name": "普通混凝土配合比设计规程",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "混凝土",
+      "配合比",
+      "水灰比",
+      "设计"
+    ],
+    "scope": "适用于普通混凝土配合比设计",
+    "version_year": 2011,
+    "series": ""
+  },
+  {
+    "code": "JGJ 79-2012",
+    "name": "建筑地基处理技术规范",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "地基基础",
+    "keywords": [
+      "地基处理",
+      "换填",
+      "压实",
+      "复合地基"
+    ],
+    "scope": "适用于建筑地基处理的设计、施工和检测",
+    "version_year": 2012,
+    "series": ""
+  },
+  {
+    "code": "JGJ 106-2014",
+    "name": "建筑基桩检测技术规范",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "基桩",
+      "静载",
+      "低应变",
+      "超声波",
+      "承载力"
+    ],
+    "scope": "适用于建筑基桩的完整性及承载力检测",
+    "version_year": 2014,
+    "series": ""
+  },
+  {
+    "code": "JGJ/T 23-2011",
+    "name": "回弹法检测混凝土抗压强度技术规程",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "回弹法",
+      "混凝土",
+      "抗压强度",
+      "无损检测"
+    ],
+    "scope": "适用于采用回弹法检测混凝土抗压强度",
+    "version_year": 2011,
+    "series": ""
+  },
+  {
+    "code": "JGJ/T 152-2019",
+    "name": "混凝土中钢筋检测技术标准",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "钢筋",
+      "保护层",
+      "间距",
+      "锈蚀"
+    ],
+    "scope": "适用于混凝土中钢筋位置、保护层厚度和锈蚀检测",
+    "version_year": 2019,
+    "series": ""
+  },
+  {
+    "code": "JGJ/T 384-2016",
+    "name": "钻芯法检测混凝土强度技术规程",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "钻芯",
+      "混凝土",
+      "强度",
+      "芯样"
+    ],
+    "scope": "适用于钻芯法检测混凝土抗压强度",
+    "version_year": 2016,
+    "series": ""
+  },
+  {
+    "code": "JGJ 340-2015",
+    "name": "建筑地基检测技术规范",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "地基",
+      "承载力",
+      "密实度",
+      "触探"
+    ],
+    "scope": "适用于建筑地基的现场检测",
+    "version_year": 2015,
+    "series": ""
+  },
+  {
+    "code": "JTG 3430-2020",
+    "name": "公路土工试验规程",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "土工",
+      "试验",
+      "含水率",
+      "密度",
+      "压实度",
+      "CBR"
+    ],
+    "scope": "适用于公路工程土工试验检测（替代JTG E40-2007）",
+    "version_year": 2020,
+    "series": ""
+  },
+  {
+    "code": "JTG 3450-2019",
+    "name": "公路路基路面现场测试规程",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "现场检测",
+      "压实度",
+      "弯沉",
+      "平整度",
+      "摩擦系数"
+    ],
+    "scope": "适用于公路路基路面工程现场质量检测",
+    "version_year": 2019,
+    "series": ""
+  },
+  {
+    "code": "JTG 3420-2020",
+    "name": "公路工程水泥及水泥混凝土试验规程",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "水泥",
+      "混凝土",
+      "抗压强度",
+      "凝结时间",
+      "安定性"
+    ],
+    "scope": "适用于公路工程水泥及水泥混凝土试验检测（替代JTG E30-2005）",
+    "version_year": 2020,
+    "series": ""
+  },
+  {
+    "code": "JTG 3410-2025",
+    "name": "公路工程沥青及沥青混合料试验规程",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "沥青",
+      "沥青混合料",
+      "针入度",
+      "软化点",
+      "马歇尔"
+    ],
+    "scope": "适用于公路工程沥青及沥青混合料试验检测（替代JTG E20-2011）",
+    "version_year": 2025,
+    "series": ""
+  },
+  {
+    "code": "JTG 3441-2024",
+    "name": "公路工程无机结合料稳定材料试验规程",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "无机结合料",
+      "水泥稳定",
+      "石灰稳定",
+      "无侧限抗压"
+    ],
+    "scope": "适用于公路工程无机结合料稳定材料试验检测（替代JTG E51-2009）",
+    "version_year": 2024,
+    "series": ""
+  },
+  {
+    "code": "JTG 3432-2024",
+    "name": "公路工程集料试验规程",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "集料",
+      "粗集料",
+      "细集料",
+      "级配",
+      "压碎值",
+      "针片状"
+    ],
+    "scope": "适用于公路工程集料的质量检测（替代JTG E42-2005）",
+    "version_year": 2024,
+    "series": ""
+  },
+  {
+    "code": "JTG F40-2004",
+    "name": "公路沥青路面施工技术规范",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "道路工程",
+    "keywords": [
+      "沥青路面",
+      "施工",
+      "配合比",
+      "摊铺",
+      "碾压"
+    ],
+    "scope": "适用于公路沥青路面施工质量控制",
+    "version_year": 2004,
+    "series": ""
+  },
+  {
+    "code": "JTG/T F20-2015",
+    "name": "公路路面基层施工技术细则",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "道路工程",
+    "keywords": [
+      "基层",
+      "底基层",
+      "水泥稳定",
+      "级配碎石"
+    ],
+    "scope": "适用于公路路面基层和底基层施工质量控制",
+    "version_year": 2015,
+    "series": ""
+  },
+  {
+    "code": "JTG F80/1-2017",
+    "name": "公路工程质量检验评定标准 第一册 土建工程",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "通用规范",
+    "keywords": [
+      "质量检验",
+      "评定",
+      "路基",
+      "路面",
+      "桥梁",
+      "隧道"
+    ],
+    "scope": "适用于公路工程土建部分的施工质量检验评定",
+    "version_year": 2017,
+    "series": ""
+  },
+  {
+    "code": "JTG/T 3610-2019",
+    "name": "公路路基施工技术规范",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "道路工程",
+    "keywords": [
+      "路基",
+      "填筑",
+      "压实",
+      "边坡"
+    ],
+    "scope": "适用于各级公路路基施工质量控制",
+    "version_year": 2019,
+    "series": ""
+  },
+  {
+    "code": "JTG D30-2015",
+    "name": "公路路基设计规范",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "道路工程",
+    "keywords": [
+      "路基设计",
+      "填方",
+      "挖方",
+      "排水"
+    ],
+    "scope": "适用于公路路基工程设计",
+    "version_year": 2015,
+    "series": ""
+  },
+  {
+    "code": "JTG D50-2017",
+    "name": "公路沥青路面设计规范",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "道路工程",
+    "keywords": [
+      "沥青路面",
+      "结构设计",
+      "厚度",
+      "材料"
+    ],
+    "scope": "适用于公路沥青路面结构设计",
+    "version_year": 2017,
+    "series": ""
+  },
+  {
+    "code": "JTG 3362-2018",
+    "name": "公路钢筋混凝土及预应力混凝土桥涵设计规范",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "桥梁工程",
+    "keywords": [
+      "桥梁",
+      "混凝土",
+      "预应力",
+      "设计"
+    ],
+    "scope": "适用于公路桥涵混凝土结构设计",
+    "version_year": 2018,
+    "series": ""
+  },
+  {
+    "code": "JTG/T 3650-2020",
+    "name": "公路桥涵施工技术规范",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "桥梁工程",
+    "keywords": [
+      "桥梁",
+      "涵洞",
+      "施工",
+      "桩基",
+      "预应力"
+    ],
+    "scope": "适用于公路桥涵工程施工质量控制",
+    "version_year": 2020,
+    "series": ""
+  },
+  {
+    "code": "JTG 5120-2021",
+    "name": "公路桥涵养护规范",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "桥梁工程",
+    "keywords": [
+      "桥梁",
+      "养护",
+      "检测",
+      "评定"
+    ],
+    "scope": "适用于公路桥涵养护管理和技术状况评定",
+    "version_year": 2021,
+    "series": ""
+  },
+  {
+    "code": "JTG/T J21-2011",
+    "name": "公路桥梁承载能力检测评定规程",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "桥梁",
+      "承载能力",
+      "荷载试验",
+      "评定"
+    ],
+    "scope": "适用于公路桥梁承载能力的检测和评定",
+    "version_year": 2011,
+    "series": ""
+  },
+  {
+    "code": "JTG/T J22-01-2021",
+    "name": "公路桥梁荷载试验规程",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "检测方法",
+    "keywords": [
+      "桥梁",
+      "荷载试验",
+      "静载",
+      "动载"
+    ],
+    "scope": "适用于公路桥梁的荷载试验检测",
+    "version_year": 2021,
+    "series": ""
+  },
+  {
+    "code": "JTG C20-2011",
+    "name": "公路工程地质勘察规范",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "地基基础",
+    "keywords": [
+      "地质",
+      "勘察",
+      "路基",
+      "桥梁",
+      "隧道"
+    ],
+    "scope": "适用于公路工程地质勘察",
+    "version_year": 2011,
+    "series": ""
+  },
+  {
+    "code": "JTG B02-2013",
+    "name": "公路工程抗震规范",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "道路工程",
+    "keywords": [
+      "抗震",
+      "地震",
+      "设计"
+    ],
+    "scope": "适用于公路工程抗震设计",
+    "version_year": 2013,
+    "series": ""
+  },
+  {
+    "code": "JTG D60-2015",
+    "name": "公路桥涵设计通用规范",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "桥梁工程",
+    "keywords": [
+      "桥涵",
+      "设计",
+      "荷载",
+      "组合"
+    ],
+    "scope": "适用于公路桥涵结构设计",
+    "version_year": 2015,
+    "series": ""
+  },
+  {
+    "code": "JTG/T H21-2011",
+    "name": "公路桥梁技术状况评定标准",
+    "type": "行标",
+    "mandatory": false,
+    "discipline": "桥梁工程",
+    "keywords": [
+      "桥梁",
+      "技术状况",
+      "评定",
+      "等级"
+    ],
+    "scope": "适用于公路桥梁技术状况的评定",
+    "version_year": 2011,
+    "series": ""
+  },
+  {
+    "code": "DBJ/T 15-38-2019",
+    "name": "广东省城镇道路工程施工与质量验收规范",
+    "type": "省标",
+    "mandatory": false,
+    "discipline": "道路工程",
+    "keywords": [
+      "广东",
+      "城镇道路",
+      "施工",
+      "验收"
+    ],
+    "scope": "适用于广东省城镇道路工程施工质量控制和验收",
+    "version_year": 2019,
+    "series": ""
+  },
+  {
+    "code": "DBJ/T 15-60-2019",
+    "name": "广东省建筑与市政工程施工质量控制规范",
+    "type": "省标",
+    "mandatory": false,
+    "discipline": "通用规范",
+    "keywords": [
+      "广东",
+      "施工",
+      "质量控制",
+      "市政"
+    ],
+    "scope": "适用于广东省建筑与市政工程施工质量控制",
+    "version_year": 2019,
+    "series": ""
+  },
+  {
+    "code": "DBJ/T 15-255-2023",
+    "name": "广东省市政工程勘察规范",
+    "type": "省标",
+    "mandatory": false,
+    "discipline": "地基基础",
+    "keywords": [
+      "广东",
+      "市政",
+      "勘察",
+      "地质"
+    ],
+    "scope": "适用于广东省市政工程岩土勘察",
+    "version_year": 2023,
+    "series": ""
+  },
+  {
+    "code": "CJJ 143-2010",
+    "name": "埋地塑料排水管道工程技术规程",
+    "type": "行标",
+    "discipline": "给排水",
+    "keywords": [
+      "塑料管道",
+      "HDPE",
+      "埋地管道",
+      "排水",
+      "检查井"
+    ],
+    "scope": "埋地塑料排水管道设计施工",
+    "version_year": 2010,
+    "series": ""
+  },
+  {
+    "code": "GB 50014-2021",
+    "name": "室外排水设计标准",
+    "type": "国标",
+    "discipline": "给排水",
+    "keywords": [
+      "排水设计",
+      "雨水",
+      "污水",
+      "排水管",
+      "排水泵站"
+    ],
+    "scope": "室外排水工程设计",
+    "version_year": 2021,
+    "series": ""
+  },
+  {
+    "code": "GB 50015-2019",
+    "name": "建筑给水排水设计标准",
+    "type": "国标",
+    "discipline": "给排水",
+    "keywords": [
+      "给水设计",
+      "排水设计",
+      "建筑给排水",
+      "热水",
+      "消防"
+    ],
+    "scope": "建筑给水排水设计",
+    "version_year": 2019,
+    "series": ""
+  },
+  {
+    "code": "CJJ 6-2009",
+    "name": "城镇排水管道维护安全技术规程",
+    "type": "行标",
+    "discipline": "给排水",
+    "keywords": [
+      "排水管道",
+      "维护",
+      "安全",
+      "检查井",
+      "清淤"
+    ],
+    "scope": "排水管道维护安全",
+    "version_year": 2009,
+    "series": ""
+  },
+  {
+    "code": "GB 50242-2002",
+    "name": "建筑给水排水及采暖工程施工质量验收规范",
+    "type": "国标",
+    "discipline": "给排水",
+    "keywords": [
+      "给水",
+      "排水",
+      "采暖",
+      "施工验收",
+      "管道"
+    ],
+    "scope": "建筑给排水采暖施工验收",
+    "version_year": 2002,
+    "series": ""
+  },
+  {
+    "code": "GB 5768-2022",
+    "name": "道路交通标志和标线",
+    "type": "国标",
+    "discipline": "交通工程",
+    "keywords": [
+      "交通标志",
+      "标线",
+      "信号灯",
+      "护栏",
+      "反光"
+    ],
+    "scope": "道路交通标志标线设置规范",
+    "version_year": 2022,
+    "series": ""
+  },
+  {
+    "code": "JTG D81-2017",
+    "name": "公路交通安全设施设计规范",
+    "type": "行标",
+    "discipline": "交通工程",
+    "keywords": [
+      "交通安全",
+      "护栏",
+      "标志",
+      "标线",
+      "防眩"
+    ],
+    "scope": "公路交通安全设施设计",
+    "version_year": 2017,
+    "series": ""
+  },
+  {
+    "code": "GB 51038-2015",
+    "name": "城市道路交通标志和标线设置规范",
+    "type": "国标",
+    "discipline": "交通工程",
+    "keywords": [
+      "城市道路",
+      "标志",
+      "标线",
+      "交叉口",
+      "路段"
+    ],
+    "scope": "城市道路标志标线设置",
+    "version_year": 2015,
+    "series": ""
+  },
+  {
+    "code": "JTG/T D71-2004",
+    "name": "公路隧道交通工程设计规范",
+    "type": "行标",
+    "discipline": "交通工程",
+    "keywords": [
+      "隧道",
+      "交通工程",
+      "通风",
+      "照明",
+      "监控"
+    ],
+    "scope": "公路隧道交通工程设计",
+    "version_year": 2004,
+    "series": ""
+  },
+  {
+    "code": "CJJ 45-2015",
+    "name": "城市道路照明设计标准",
+    "type": "行标",
+    "discipline": "照明",
+    "keywords": [
+      "道路照明",
+      "路灯",
+      "照度",
+      "亮度",
+      "均匀度"
+    ],
+    "scope": "城市道路照明设计",
+    "version_year": 2015,
+    "series": ""
+  },
+  {
+    "code": "GB 50034-2013",
+    "name": "建筑照明设计标准",
+    "type": "国标",
+    "discipline": "照明",
+    "keywords": [
+      "照明设计",
+      "照度",
+      "功率密度",
+      "眩光",
+      "显色"
+    ],
+    "scope": "建筑照明设计",
+    "version_year": 2013,
+    "series": ""
+  },
+  {
+    "code": "JGJ 16-2008",
+    "name": "民用建筑电气设计规范",
+    "type": "行标",
+    "discipline": "照明",
+    "keywords": [
+      "电气设计",
+      "照明",
+      "供配电",
+      "防雷",
+      "接地"
+    ],
+    "scope": "民用建筑电气设计",
+    "version_year": 2008,
+    "series": ""
+  },
+  {
+    "code": "GB 50168-2018",
+    "name": "电气装置安装工程电缆线路施工及验收标准",
+    "type": "国标",
+    "discipline": "电气",
+    "keywords": [
+      "电缆",
+      "敷设",
+      "接头",
+      "终端",
+      "试验"
+    ],
+    "scope": "电缆线路施工验收",
+    "version_year": 2018,
+    "series": ""
+  },
+  {
+    "code": "GB 50217-2018",
+    "name": "电力工程电缆设计标准",
+    "type": "国标",
+    "discipline": "电气",
+    "keywords": [
+      "电缆设计",
+      "选型",
+      "敷设",
+      "接地",
+      "防火"
+    ],
+    "scope": "电力工程电缆设计",
+    "version_year": 2018,
+    "series": ""
+  },
+  {
+    "code": "GB 50303-2015",
+    "name": "建筑电气工程施工质量验收规范",
+    "type": "国标",
+    "discipline": "电气",
+    "keywords": [
+      "电气施工",
+      "配电",
+      "照明",
+      "防雷",
+      "接地"
+    ],
+    "scope": "建筑电气施工验收",
+    "version_year": 2015,
+    "series": ""
+  },
+  {
+    "code": "GB/T 50065-2011",
+    "name": "交流电气装置的接地设计规范",
+    "type": "国标",
+    "discipline": "电气",
+    "keywords": [
+      "接地",
+      "电气",
+      "防雷",
+      "等电位",
+      "接地电阻"
+    ],
+    "scope": "交流电气接地设计",
+    "version_year": 2011,
+    "series": ""
+  },
+  {
+    "code": "GB/T 50312-2016",
+    "name": "综合布线系统工程验收规范",
+    "type": "国标",
+    "discipline": "通信",
+    "keywords": [
+      "综合布线",
+      "光缆",
+      "铜缆",
+      "配线架",
+      "测试"
+    ],
+    "scope": "综合布线工程验收",
+    "version_year": 2016,
+    "series": ""
+  },
+  {
+    "code": "YD/T 1836-2008",
+    "name": "通信管道与通道工程设计规范",
+    "type": "行标",
+    "discipline": "通信",
+    "keywords": [
+      "通信管道",
+      "人孔",
+      "手孔",
+      "管孔",
+      "路由"
+    ],
+    "scope": "通信管道设计",
+    "version_year": 2008,
+    "series": ""
+  },
+  {
+    "code": "GB 51158-2016",
+    "name": "通信线路工程设计规范",
+    "type": "国标",
+    "discipline": "通信",
+    "keywords": [
+      "通信线路",
+      "光缆",
+      "电缆",
+      "杆路",
+      "管道"
+    ],
+    "scope": "通信线路工程设计",
+    "version_year": 2016,
+    "series": ""
+  },
+  {
+    "code": "GB 51171-2016",
+    "name": "通信线路工程验收规范",
+    "type": "国标",
+    "discipline": "通信",
+    "keywords": [
+      "通信线路",
+      "验收",
+      "测试",
+      "光缆",
+      "接头"
+    ],
+    "scope": "通信线路工程验收",
+    "version_year": 2016,
+    "series": ""
+  },
+  {
+    "code": "GB 50661-2011",
+    "name": "钢结构焊接规范",
+    "type": "国标",
+    "discipline": "附属设施",
+    "keywords": [
+      "钢结构",
+      "焊接",
+      "焊缝",
+      "工艺评定",
+      "检验"
+    ],
+    "scope": "钢结构焊接施工",
+    "version_year": 2011,
+    "series": ""
+  },
+  {
+    "code": "GB 50013-2018",
+    "name": "室外给水设计标准",
+    "type": "国标",
+    "discipline": "给排水",
+    "keywords": [
+      "给水设计",
+      "供水",
+      "水厂",
+      "管网",
+      "泵站"
+    ],
+    "scope": "室外给水工程设计",
+    "version_year": 2018,
+    "series": ""
+  },
+  {
+    "code": "GB/T 16311-2009",
+    "name": "道路交通标线质量要求和检测方法",
+    "type": "国标",
+    "discipline": "交通工程",
+    "keywords": [
+      "标线",
+      "质量",
+      "检测",
+      "反光",
+      "厚度"
+    ],
+    "scope": "道路交通标线质量检测",
+    "version_year": 2009,
+    "series": ""
+  }
+]

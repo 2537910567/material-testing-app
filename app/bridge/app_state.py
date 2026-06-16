@@ -557,6 +557,7 @@ class AppState(QObject):
     projectsChanged = Signal()
     importStarted = Signal()
     importFinished = Signal(str)
+    importError = Signal(str, str)  # V6.1.1: 导入错误汇总 (projectId, errorMessage)
     importProgress = Signal(int, int, str)
     mixedFileTypesDetected = Signal("QVariantList")  # V5.3: [{type: "cad"/"pdf", count: N}, ...]
     conversionStarted = Signal()
@@ -775,7 +776,7 @@ class AppState(QObject):
 
     @Property(str, notify=errorLogChanged)
     def appVersion(self):
-        return "6.1.0"
+        return "6.1.1"
 
     # V6.1: 自动更新
     def _getUpdateAvailable(self): return self._update_available
@@ -972,6 +973,9 @@ class AppState(QObject):
 
     def _on_import_error(self, m):
         self._add_error_log("导入错误", m)
+        if not hasattr(self, '_import_errors'):
+            self._import_errors = []
+        self._import_errors.append(m)
 
     def _on_import_finished(self, pid):
         el = (time.time() - self._import_start_time) * 1000 if self._import_start_time else 0
@@ -980,6 +984,16 @@ class AppState(QObject):
         self._is_importing = False
         self._import_message = "导入完成"
         self._import_thread = None
+        # V6.1.1: 收集的导入错误弹出提示
+        import_errors = getattr(self, '_import_errors', [])
+        if import_errors:
+            # 去重 + 截取前 5 条
+            unique = list(dict.fromkeys(import_errors))
+            msg = f"{len(unique)} 个文件导入失败:\n" + "\n".join(f"• {e[:120]}" for e in unique[:5])
+            if len(unique) > 5:
+                msg += f"\n... 还有 {len(unique) - 5} 个错误"
+            self.importError.emit(pid, msg)
+            self._import_errors = []
         self.importStarted.emit()
         self.importFinished.emit(pid)
         # V6.0: 不 emit projectsChanged（importFinished→refreshProject 已做增量刷新，projectsChanged 会导致全树折叠）

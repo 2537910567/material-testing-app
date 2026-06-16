@@ -74,7 +74,7 @@ a = Analysis(
         'matplotlib',
         'matplotlib.backends',
         'tkinter',
-        'unittest',
+        # 'unittest',  # V6.1.1: 移除 — pyparsing (ezdxf 依赖) 需要 unittest
         'pytest',
         'pip',
         'setuptools',

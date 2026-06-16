@@ -307,8 +307,8 @@ ApplicationWindow {
         }
     }
 
-    // ── Fixed 2-column Layout (V4.5.5) ──────────────
-    RowLayout {
+    // ── V6.1.1: ColumnLayout 包裹更新提示条 + 2-column 布局 ──
+    ColumnLayout {
         anchors.fill: parent
         spacing: 0
 
@@ -361,8 +361,14 @@ ApplicationWindow {
             }
         }
 
-        // Left: ProjectTree
-        ProjectTree {
+        // ── 2-column RowLayout ──
+        RowLayout {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            spacing: 0
+
+            // Left: ProjectTree
+            ProjectTree {
             id: projectTree
             objectName: "projectTree"
             Layout.preferredWidth: 260
@@ -692,7 +698,9 @@ ApplicationWindow {
                 }
             }
         }
-    }
+    }  // RowLayout (2-column)
+
+    }  // ColumnLayout (update banner + main layout)
 
     // ── Connections ──────────────────────────────────
     Connections {
@@ -702,6 +710,11 @@ ApplicationWindow {
         function onImportFinished(projectId) {
             if (FileListModel) FileListModel.refresh(projectId)
             if (SectionListModel) SectionListModel.refresh(projectId)
+        }
+
+        // V6.1.1: 导入失败错误提示
+        function onImportError(projectId, errorMsg) {
+            errorDialog.show("导入错误", errorMsg)
         }
 
         function onConversionFinished(projectId) {
