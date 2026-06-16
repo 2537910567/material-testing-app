@@ -63,7 +63,7 @@ def run_gui():
     # 使用 QApplication（不是 QGuiApplication）以支持 QFileDialog 等 Widget
     app = QApplication(sys.argv)
     app.setApplicationName("工程材料送检分析系统")
-    app.setApplicationVersion("6.0.0")
+    app.setApplicationVersion("6.1.0")
     app.setOrganizationName("MaterialTestingTool")
 
     # 应用图标（多路径回退，兼容开发环境和 PyInstaller 打包）
