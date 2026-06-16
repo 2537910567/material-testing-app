@@ -328,18 +328,35 @@ ApplicationWindow {
                     font.pixelSize: AppTheme.fontSizeSm
                 }
                 Item { Layout.fillWidth: true }
-                ActionButton {
-                    text: "立即更新"
-                    variant: "ctaSmall"
-                    onClicked: {
-                        var r = AppState.downloadUpdate()
-                        if (r && r.ok) AppState.installUpdate(r.path)
+                Rectangle {
+                    height: 24; radius: 12
+                    width: updateBtnText.implicitWidth + 20
+                    color: AppTheme.accent
+                    Label {
+                        id: updateBtnText
+                        anchors.centerIn: parent
+                        text: "立即更新"
+                        font.pixelSize: AppTheme.fontSizeSm
+                        color: AppTheme.textOnAccent
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: {
+                            var r = AppState.downloadUpdate()
+                            if (r && r.ok) AppState.installUpdate(r.path)
+                        }
                     }
                 }
-                ActionButton {
+                Label {
                     text: "忽略"
-                    variant: "ghostSmall"
-                    onClicked: AppState.dismissUpdate()
+                    font.pixelSize: AppTheme.fontSizeSm
+                    color: AppTheme.textSecondary
+                    MouseArea {
+                        anchors.fill: parent
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: AppState.dismissUpdate()
+                    }
                 }
             }
         }

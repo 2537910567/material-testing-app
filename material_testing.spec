@@ -79,6 +79,9 @@ a = Analysis(
         'pip',
         'setuptools',
         'wheel',
+        # 测试代码和开发工具
+        'tests',
+        'installer',
         # 可选依赖（如未安装则忽略）
         'paddleocr',
         'pytesseract',

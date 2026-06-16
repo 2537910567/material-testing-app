@@ -1447,23 +1447,26 @@ class AppState(QObject):
 
     @Slot()
     def openStandardsWindow(self):
-        """V5.2: 打开参考标准库独立窗口"""
+        """V6.1: 打开参考标准库独立窗口"""
         from PySide6.QtQml import QQmlApplicationEngine
         from PySide6.QtCore import QUrl
-        from pathlib import Path
-        import os as _os
         engine = getattr(self, '_standards_engine', None)
-        if engine is None:
-            engine = QQmlApplicationEngine()
-            self._standards_engine = engine
-            qml_path = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "qml", "StandardsWindow.qml")
-        else:
+        if engine is not None:
             for obj in engine.rootObjects():
                 obj.show()
                 obj.raise_()
                 obj.requestActivate()
                 return
+        engine = QQmlApplicationEngine()
+        self._standards_engine = engine
         engine.rootContext().setContextProperty("AppState", self)
+        # V6.1: _MEIPASS 兼容 — QML 文件在 qml/ 目录下
+        import sys, os as _os
+        _meipass = getattr(sys, "_MEIPASS", None)
+        if _meipass:
+            qml_path = _os.path.join(_meipass, "qml", "StandardsWindow.qml")
+        else:
+            qml_path = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "qml", "StandardsWindow.qml")
         engine.load(QUrl.fromLocalFile(qml_path))
 
     @Slot(str, str, result="QVariantMap")
