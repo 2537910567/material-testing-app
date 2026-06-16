@@ -166,7 +166,7 @@ Data Flow:
 | 大 DWG | 15.2 MB | 48 s | 392 MB | 35,229 实体 |
 | 中 DWG | 7.2 MB | 19 s | 383 MB | 2,028 实体 |
 
-> 以上数据来自永莲大道项目实际测试（2026-06-16）。表格提取使用 PyMuPDF `find_tables()`，内存较 pdfplumber 降低 97%。
+> 以上数据来自某市政道路项目实际测试（2026-06-16）。表格提取使用 PyMuPDF `find_tables()`，内存较 pdfplumber 降低 97%。
 
 ---
 
