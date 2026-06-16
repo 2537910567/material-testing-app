@@ -1,29 +1,38 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import AppTheme 1.0
+
+// V6.1: 全部颜色硬编码 — 独立 QQmlApplicationEngine 无法解析 AppTheme 单例
 
 ApplicationWindow {
     id: window
     title: "参考标准库"
-    width: 680
-    height: 520
-    minimumWidth: 500
-    minimumHeight: 360
+    width: 700; height: 540
+    minimumWidth: 500; minimumHeight: 360
     flags: Qt.Dialog | Qt.WindowCloseButtonHint | Qt.WindowTitleHint
     visible: true
-    color: AppTheme.bgMain
+    color: "#FAFAFA"
+
+    // 硬编码颜色（Light Theme: shadcn Zinc）
+    readonly property color cBg:          "#FAFAFA"
+    readonly property color cSurface:     "#FFFFFF"
+    readonly property color cBorder:      "#E4E4E7"
+    readonly property color cText:        "#09090B"
+    readonly property color cText2:       "#71717A"
+    readonly property color cText3:       "#A1A1AA"
+    readonly property color cAccent:      "#18181B"
+    readonly property color cBlueBadge:   "#DBEAFE"
+    readonly property color cBlueText:    "#1D4ED8"
+    readonly property color cGrayBadge:   "#F4F4F5"
+    readonly property color cGrayText:    "#374151"
+    readonly property color cGreen:       "#16A34A"
+    readonly property color cBlue:        "#2563EB"
+    readonly property color cGray:        "#9CA3AF"
 
     property var allStandards: []
     property var filteredStandards: []
     property string searchText: ""
     property string selectedDiscipline: "全部"
-
-    // 硬编码颜色（独立 engine 可能无法解析 AppTheme 单例）
-    readonly property string chipSelBg: "#18181B"
-    readonly property string chipSelFg: "#FAFAFA"
-    readonly property string chipBg: "#F4F4F5"
-    readonly property string chipFg: "#71717A"
 
     ListModel { id: discModel }
 
@@ -40,26 +49,21 @@ ApplicationWindow {
         var discs = ["全部", "道路工程", "桥梁工程", "地基基础", "给排水",
                      "交通工程", "照明", "电气", "通信", "原材料",
                      "附属设施", "检测方法", "通用规范"]
-        for (var i = 0; i < discs.length; i++) {
+        for (var i = 0; i < discs.length; i++)
             discModel.append({ name: discs[i], sel: discs[i] === "全部" })
-        }
     }
 
     function selectDisc(name) {
-        for (var i = 0; i < discModel.count; i++) {
+        for (var i = 0; i < discModel.count; i++)
             discModel.setProperty(i, "sel", discModel.get(i).name === name)
-        }
         selectedDiscipline = name
         applyFilter()
     }
 
     function applyFilter() {
         var result = allStandards
-        if (selectedDiscipline !== "全部") {
-            result = result.filter(function(s) {
-                return s.discipline === selectedDiscipline
-            })
-        }
+        if (selectedDiscipline !== "全部")
+            result = result.filter(function(s) { return s.discipline === selectedDiscipline })
         if (searchText.trim() !== "") {
             var q = searchText.trim().toLowerCase()
             result = result.filter(function(s) {
@@ -73,66 +77,51 @@ ApplicationWindow {
 
     ColumnLayout {
         anchors.fill: parent
-        anchors.margins: AppTheme.spacing
-        spacing: AppTheme.spacingSm
+        anchors.margins: 8
+        spacing: 4
 
-        // Search
+        // Search + Clear
         RowLayout {
-            Layout.fillWidth: true
-            spacing: AppTheme.spacingSm
+            Layout.fillWidth: true; spacing: 4
             TextField {
                 id: searchField
                 Layout.fillWidth: true
                 placeholderText: "搜索标准编号、名称或关键词..."
-                font.pixelSize: AppTheme.fontSize
+                font.pixelSize: 14
                 onTextChanged: { searchText = text; applyFilter() }
                 background: Rectangle {
-                    radius: AppTheme.radiusSmall
-                    color: AppTheme.bgSurface
-                    border.width: 1; border.color: AppTheme.border
+                    radius: 4; color: cSurface
+                    border.width: 1; border.color: cBorder
                 }
             }
-            // V6.1: 清除搜索按钮
             Rectangle {
                 visible: searchField.text.length > 0
-                width: 24; height: 24; radius: 12
-                color: AppTheme.bgHover
+                width: 24; height: 24; radius: 12; color: cGrayBadge
                 Label {
                     anchors.centerIn: parent
-                    text: "✕"
-                    font.pixelSize: 12
-                    color: AppTheme.textSecondary
+                    text: "✕"; font.pixelSize: 12; color: cText2
                 }
                 MouseArea {
-                    anchors.fill: parent
-                    cursorShape: Qt.PointingHandCursor
+                    anchors.fill: parent; cursorShape: Qt.PointingHandCursor
                     onClicked: { searchField.text = ""; searchText = ""; applyFilter() }
                 }
             }
         }
 
-        // Discipline chips — Repeater + ListModel, 硬编码颜色
+        // Discipline chips
         Flow {
-            Layout.fillWidth: true
-            spacing: 4
-
+            Layout.fillWidth: true; spacing: 4
             Repeater {
                 model: discModel
                 delegate: Rectangle {
-                    width: t.implicitWidth + 16
-                    height: 28
-                    radius: 14
-                    color: sel ? chipSelBg : chipBg
+                    width: t.implicitWidth + 16; height: 28; radius: 14
+                    color: sel ? cAccent : cGrayBadge
                     Text {
-                        id: t
-                        anchors.centerIn: parent
-                        text: name
-                        font.pixelSize: AppTheme.fontSizeSm
-                        color: sel ? chipSelFg : chipFg
+                        id: t; anchors.centerIn: parent; text: name
+                        font.pixelSize: 12; color: sel ? cBg : cText2
                     }
                     MouseArea {
-                        anchors.fill: parent
-                        cursorShape: Qt.PointingHandCursor
+                        anchors.fill: parent; cursorShape: Qt.PointingHandCursor
                         onClicked: selectDisc(name)
                     }
                 }
@@ -141,103 +130,82 @@ ApplicationWindow {
 
         Label {
             text: filteredStandards.length + " 本标准"
-            color: AppTheme.textDisabled
-            font.pixelSize: AppTheme.fontSizeSm
+            color: cText3; font.pixelSize: 12
         }
 
         // Standards list
         ListView {
             id: listView
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            clip: true
-            model: filteredStandards
-            spacing: 2
+            Layout.fillWidth: true; Layout.fillHeight: true
+            clip: true; model: filteredStandards; spacing: 2
             ScrollBar.vertical: ScrollBar { policy: ScrollBar.AsNeeded }
 
             delegate: Rectangle {
-                width: listView.width
-                height: 72
-                radius: AppTheme.radiusSmall
-                color: index % 2 === 0 ? AppTheme.bgSurface : AppTheme.bgMain
+                width: listView.width; height: 72; radius: 4
+                color: index % 2 === 0 ? cSurface : cBg
 
-                // V6.1: 左侧类型颜色条
+                // Left color strip
                 Rectangle {
                     anchors.left: parent.left
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
-                    width: 3
-                    color: modelData.type === "国标" ? "#2563EB" :
-                           modelData.type === "行标" ? "#16A34A" : "#9CA3AF"
-                    radius: 2
+                    anchors.top: parent.top; anchors.bottom: parent.bottom
+                    width: 3; radius: 2
+                    color: modelData.type === "国标" ? cBlue :
+                           modelData.type === "行标" ? cGreen : cGray
                 }
 
                 RowLayout {
                     anchors.fill: parent
-                    anchors.leftMargin: AppTheme.spacingSm + 6
-                    anchors.rightMargin: AppTheme.spacingSm
-                    anchors.topMargin: AppTheme.spacingSm
-                    anchors.bottomMargin: AppTheme.spacingSm
-                    spacing: AppTheme.spacing
+                    anchors.leftMargin: 10; anchors.rightMargin: 8
+                    anchors.topMargin: 8; anchors.bottomMargin: 8
+                    spacing: 8
 
+                    // Code + type badge + year
                     ColumnLayout {
-                        Layout.preferredWidth: 180
-                        spacing: 2
+                        Layout.preferredWidth: 180; spacing: 2
                         RowLayout {
-                            spacing: AppTheme.spacingSm
+                            spacing: 4
                             Label {
-                                text: modelData.code
-                                font.pixelSize: AppTheme.fontSize; font.bold: true
-                                color: AppTheme.accent
+                                text: modelData.code; font.pixelSize: 14
+                                font.bold: true; color: cAccent
                             }
                             Rectangle {
                                 radius: 3
-                                width: typeLabel.implicitWidth + 8
-                                height: typeLabel.implicitHeight + 4
-                                color: modelData.type === "国标" ? AppTheme.badgeLeft :
-                                       modelData.type === "行标" ? AppTheme.badgeNeutral : AppTheme.selection
+                                width: typeBadge.implicitWidth + 8
+                                height: typeBadge.implicitHeight + 4
+                                color: modelData.type === "国标" ? cBlueBadge :
+                                       modelData.type === "行标" ? cGrayBadge : cGrayBadge
                                 Label {
-                                    id: typeLabel
-                                    text: modelData.type || ""
-                                    anchors.centerIn: parent
-                                    font.pixelSize: AppTheme.fontSizeXs || 10
-                                    color: modelData.type === "国标" ? AppTheme.badgeTextLeft :
-                                           modelData.type === "行标" ? AppTheme.badgeTextNeutral : AppTheme.textSecondary
+                                    id: typeBadge; text: modelData.type || ""
+                                    font.pixelSize: 10; anchors.centerIn: parent
+                                    color: modelData.type === "国标" ? cBlueText : cGrayText
                                 }
                             }
                         }
                         Label {
                             text: modelData.version_year || ""
-                            color: AppTheme.textDisabled
-                            font.pixelSize: AppTheme.fontSizeSm
+                            color: cText3; font.pixelSize: 12
                         }
                     }
 
+                    // Name + keywords
                     ColumnLayout {
-                        Layout.fillWidth: true
-                        spacing: 2
+                        Layout.fillWidth: true; spacing: 2
                         Label {
-                            text: modelData.name
-                            font.pixelSize: AppTheme.fontSize
-                            color: AppTheme.textPrimary
-                            elide: Text.ElideRight
+                            text: modelData.name; font.pixelSize: 14
+                            color: cText; elide: Text.ElideRight
                             Layout.fillWidth: true
                         }
                         Label {
                             text: modelData.keywords || ""
-                            font.pixelSize: AppTheme.fontSizeSm
-                            color: AppTheme.textSecondary
-                            elide: Text.ElideRight
-                            Layout.fillWidth: true
+                            font.pixelSize: 12; color: cText2
+                            elide: Text.ElideRight; Layout.fillWidth: true
                         }
                     }
 
                     Label {
                         Layout.preferredWidth: 120
-                        text: modelData.scope || ""
-                        font.pixelSize: AppTheme.fontSizeSm
-                        color: AppTheme.textDisabled
-                        elide: Text.ElideRight
+                        text: modelData.scope || ""; font.pixelSize: 12
+                        color: cText3; elide: Text.ElideRight
                         visible: modelData.scope && modelData.scope.length > 0
                     }
                 }
@@ -246,8 +214,7 @@ ApplicationWindow {
             Label {
                 anchors.centerIn: parent
                 text: allStandards.length === 0 ? "加载中..." : "无匹配标准"
-                color: AppTheme.textDisabled
-                font.pixelSize: AppTheme.fontSize
+                color: cText3; font.pixelSize: 14
                 visible: filteredStandards.length === 0
             }
         }

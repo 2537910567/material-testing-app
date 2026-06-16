@@ -1448,30 +1448,32 @@ class AppState(QObject):
     @Slot()
     def openStandardsWindow(self):
         """V6.1: 打开参考标准库独立窗口"""
-        from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterSingletonInstance
+        from PySide6.QtQml import QQmlApplicationEngine
         from PySide6.QtCore import QUrl
-        engine = getattr(self, '_standards_engine', None)
-        if engine is not None:
-            for obj in engine.rootObjects():
-                obj.show()
-                obj.raise_()
-                obj.requestActivate()
-                return
-        engine = QQmlApplicationEngine()
-        self._standards_engine = engine
-        # V6.1: 注册 AppState + AppTheme 到独立引擎（否则 QML 中 AppTheme.xxx 为空）
-        engine.rootContext().setContextProperty("AppState", self)
-        theme = getattr(self, '_theme_instance', None)
-        if theme is not None:
-            qmlRegisterSingletonInstance(type(theme), "AppTheme", 1, 0, "AppTheme", theme)
-        # V6.1: _MEIPASS 兼容 — QML 文件在 qml/ 目录下
-        import sys, os as _os
-        _meipass = getattr(sys, "_MEIPASS", None)
-        if _meipass:
-            qml_path = _os.path.join(_meipass, "qml", "StandardsWindow.qml")
-        else:
-            qml_path = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "qml", "StandardsWindow.qml")
-        engine.load(QUrl.fromLocalFile(qml_path))
+        import logging
+        _log = logging.getLogger(__name__)
+        try:
+            engine = getattr(self, '_standards_engine', None)
+            if engine is not None:
+                for obj in engine.rootObjects():
+                    obj.show()
+                    obj.raise_()
+                    obj.requestActivate()
+                    return
+            engine = QQmlApplicationEngine()
+            self._standards_engine = engine
+            engine.rootContext().setContextProperty("AppState", self)
+            # AppTheme 已由 main.py 的 qmlRegisterSingletonInstance 进程级注册，无需再注册
+            # V6.1: _MEIPASS 兼容
+            import sys, os as _os
+            _meipass = getattr(sys, "_MEIPASS", None)
+            if _meipass:
+                qml_path = _os.path.join(_meipass, "qml", "StandardsWindow.qml")
+            else:
+                qml_path = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "qml", "StandardsWindow.qml")
+            engine.load(QUrl.fromLocalFile(qml_path))
+        except Exception as e:
+            _log.error("openStandardsWindow: %s", e, exc_info=True)
 
     @Slot(str, str, result="QVariantMap")
     def testConnection(self, dk, qk):
