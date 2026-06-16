@@ -136,6 +136,7 @@ def run_gui():
 
     # ── V5.2: 读取并应用主题偏好 ──
     theme_instance = ThemeObject()
+    app_state._theme_instance = theme_instance  # V6.1: 供 StandardsWindow 独立引擎使用
     try:
         saved_mode = app_state._config.theme_mode
         if saved_mode in ("light", "dark"):

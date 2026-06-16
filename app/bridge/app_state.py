@@ -1448,7 +1448,7 @@ class AppState(QObject):
     @Slot()
     def openStandardsWindow(self):
         """V6.1: 打开参考标准库独立窗口"""
-        from PySide6.QtQml import QQmlApplicationEngine
+        from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterSingletonInstance
         from PySide6.QtCore import QUrl
         engine = getattr(self, '_standards_engine', None)
         if engine is not None:
@@ -1459,7 +1459,11 @@ class AppState(QObject):
                 return
         engine = QQmlApplicationEngine()
         self._standards_engine = engine
+        # V6.1: 注册 AppState + AppTheme 到独立引擎（否则 QML 中 AppTheme.xxx 为空）
         engine.rootContext().setContextProperty("AppState", self)
+        theme = getattr(self, '_theme_instance', None)
+        if theme is not None:
+            qmlRegisterSingletonInstance(type(theme), "AppTheme", 1, 0, "AppTheme", theme)
         # V6.1: _MEIPASS 兼容 — QML 文件在 qml/ 目录下
         import sys, os as _os
         _meipass = getattr(sys, "_MEIPASS", None)
