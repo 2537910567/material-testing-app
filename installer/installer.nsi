@@ -1,10 +1,10 @@
-; NSIS 安装脚本 — 工程材料送检分析系统 V6.1.2
+; NSIS 安装脚本 — 工程材料送检分析系统 V6.1.3
 ; 编译: makensis installer\installer.nsi
 Unicode true
 
 !define APP_NAME "MaterialTestingTool"
 !define APP_DISPLAY "工程材料送检分析系统"
-!define APP_VERSION "6.1.2"
+!define APP_VERSION "6.1.3"
 !define PUBLISHER "MaterialTestingTool"
 !define OUTPUT_DIR "C:\Users\Administrator\Desktop\dist\MaterialTestingTool"
 !define REDIST_DIR "C:\Users\Administrator\Desktop\dist\redist"

@@ -739,7 +739,7 @@ class AppState(QObject):
         def _check():
             try:
                 from ..engine.update_checker import check_for_updates
-                result = check_for_updates("6.1.0")
+                result = check_for_updates("6.1.3")
                 if result and result.get("version"):
                     self._update_available = True
                     self._update_version = result["version"]
@@ -761,10 +761,10 @@ class AppState(QObject):
 
     @Slot(result="QVariantMap")
     def checkForUpdatesNow(self):
-        """V6.1.1: 手动检查更新（同步，QML 可直接调用）"""
+        """V6.1.2: 手动检查更新（force=True 绕过24h缓存）"""
         try:
             from ..engine.update_checker import check_for_updates
-            result = check_for_updates("6.1.2")
+            result = check_for_updates("6.1.3", force=True)
             if result and result.get("version"):
                 self._update_available = True
                 self._update_version = result["version"]
@@ -826,7 +826,7 @@ class AppState(QObject):
 
     @Property(str, notify=errorLogChanged)
     def appVersion(self):
-        return "6.1.2"
+        return "6.1.3"
 
     # V6.1: 自动更新
     def _getUpdateAvailable(self): return self._update_available

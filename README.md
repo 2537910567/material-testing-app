@@ -1,11 +1,11 @@
-# 🏗️ 工程材料送检分析系统 V6.1.2
+# 🏗️ 工程材料送检分析系统 V6.1.3
 
 > 基于 AI 的智能送检计划生成工具 — CAD/PDF 图纸解析 + DeepSeek 文本分析 + Qwen-VL 视觉分析 → 合规 Excel 送检计划
 
 [![Windows](https://img.shields.io/badge/Platform-Windows%2010%2F11-blue)](https://github.com/2537910567/material-testing-app/releases)
 [![Python](https://img.shields.io/badge/Python-3.12-green)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
-[![Release](https://img.shields.io/badge/Release-v6.1.2-brightgreen)](https://github.com/2537910567/material-testing-app/releases/latest)
+[![Release](https://img.shields.io/badge/Release-v6.1.3-brightgreen)](https://github.com/2537910567/material-testing-app/releases/latest)
 
 ---
 
@@ -199,6 +199,7 @@ cd /tmp && iconv -f UTF-8 -t GBK installer/installer.nsi > install.nsi && makens
 
 | 版本 | 主要更新 |
 |------|---------|
+| **V6.1.3** | 修复手动检查更新 24h 缓存拦截 + force=True 绕过缓存 |
 | **V6.1.2** | 集成 ODAFC + VC Redist 到安装包 + 修复静默失败 + 导入错误可见提示 |
 | **V6.1.1** | Win11 批量导入弹窗修复 + unittest 缺失 + 更新提示条布局 + 许可证乱码 + 检查更新 |
 | **V6.1.0** | PyInstaller 打包 + NSIS 安装包 + GitHub Actions CI + 自动更新 + 系统托盘通知 + PyMuPDF 全量表提取 |

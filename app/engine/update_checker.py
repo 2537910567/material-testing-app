@@ -17,13 +17,15 @@ CHECK_INTERVAL_HOURS = 24  # 检查间隔，避免频繁请求
 
 
 def check_for_updates(current_version: str,
-                      cache_dir: Optional[Path] = None) -> Optional[Dict]:
+                      cache_dir: Optional[Path] = None,
+                      force: bool = False) -> Optional[Dict]:
     """
     检查 GitHub Release 是否有新版本。
 
     Args:
         current_version: 当前版本号（如 "6.1.0"）
         cache_dir: 缓存目录，用于存储上次检查时间
+        force: True = 忽略24小时缓存，强制重新请求 (V6.1.2)
 
     Returns:
         None = 无更新或检查失败
@@ -34,17 +36,18 @@ def check_for_updates(current_version: str,
     cache_dir.mkdir(parents=True, exist_ok=True)
     cache_file = cache_dir / "update_check.json"
 
-    # 24小时内不重复检查
+    # 24小时内不重复检查（force=True 时跳过）
     now = time.time()
-    try:
-        if cache_file.exists():
-            cache = json.loads(cache_file.read_text(encoding="utf-8"))
-            if now - cache.get("last_check", 0) < CHECK_INTERVAL_HOURS * 3600:
-                # 返回缓存的检查结果
-                cached = cache.get("cached_result")
-                return cached if cached and _version_newer(cached.get("version", ""), current_version) else None
-    except Exception:
-        pass
+    if not force:
+        try:
+            if cache_file.exists():
+                cache = json.loads(cache_file.read_text(encoding="utf-8"))
+                if now - cache.get("last_check", 0) < CHECK_INTERVAL_HOURS * 3600:
+                    # 返回缓存的检查结果
+                    cached = cache.get("cached_result")
+                    return cached if cached and _version_newer(cached.get("version", ""), current_version) else None
+        except Exception:
+            pass
 
     result = None
     try:
